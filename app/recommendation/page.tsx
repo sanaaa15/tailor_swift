@@ -146,7 +146,7 @@ const Recommendation = () => {
         .sort(() => 0.5 - Math.random())
         .slice(0, numAdditionalAttrs);
 
-      const selectedAttributes = [colorAttribute, ...selectedOtherAttrs].filter(Boolean);
+      const selectedAttributes = [colorAttribute, ...selectedOtherAttrs].filter((attr): attr is { value: string, type: string } => attr !== undefined);
 
       return selectedAttributes
         .map(attr => {
